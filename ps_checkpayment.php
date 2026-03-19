@@ -112,8 +112,8 @@ class Ps_Checkpayment extends PaymentModule
     private function _postProcess()
     {
         if (Tools::isSubmit('btnSubmit')) {
-            Configuration::updateValue('CHEQUE_NAME', Tools::getValue('CHEQUE_NAME'));
-            Configuration::updateValue('CHEQUE_ADDRESS', Tools::getValue('CHEQUE_ADDRESS'));
+            Configuration::updateValue('CHEQUE_NAME', strip_tags(Tools::getValue('CHEQUE_NAME')));
+            Configuration::updateValue('CHEQUE_ADDRESS', strip_tags(Tools::getValue('CHEQUE_ADDRESS')));
         }
         $this->_html .= $this->displayConfirmation($this->trans('Settings updated', [], 'Admin.Notifications.Success'));
     }
