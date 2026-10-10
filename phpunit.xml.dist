@@ -2,14 +2,12 @@
 <phpunit bootstrap="tests/bootstrap-core.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" backupStaticAttributes="false">
   <php><ini name="error_reporting" value="-1"/></php>
   <testsuites>
-    <testsuite name="ps_checkpayment_a">
+    <testsuite name="module-tests">
       <file>./tests/unit/CheckpaymentConfigTest.php</file>
       <file>./tests/unit/CheckpaymentConstructTest.php</file>
       <file>./tests/unit/CheckpaymentCurrencyAndTemplateVarsTest.php</file>
       <file>./tests/unit/CheckpaymentHooksTest.php</file>
       <file>./tests/unit/CheckpaymentInstallTest.php</file>
-    </testsuite>
-    <testsuite name="ps_checkpayment_b">
       <file>./tests/unit/PaymentControllerTest.php</file>
       <file>./tests/unit/TemplateAndManifestTest.php</file>
       <file>./tests/unit/Upgrade206Test.php</file>
