@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(-1);
+
 $root = dirname(dirname(__DIR__));
 require_once $root . '/tests/bootstrap-core.php';
 

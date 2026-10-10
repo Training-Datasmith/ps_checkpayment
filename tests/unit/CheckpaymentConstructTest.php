@@ -82,7 +82,7 @@ class CheckpaymentConstructTest extends ModuleTestCase
         Configuration::$store = array();
         Currency::$checkPaymentCurrenciesRows = array();
         $module = new Ps_Checkpayment();
-        $this->assertNull($module->warning);
+        $this->assertFalse(isset($module->warning));
     }
 
     public function testCurrencyWarningWhenConfigured()
@@ -106,6 +106,6 @@ class CheckpaymentConstructTest extends ModuleTestCase
         );
         Currency::$checkPaymentCurrenciesRows = array(array('id_currency' => 3));
         $module = new Ps_Checkpayment();
-        $this->assertNull($module->warning);
+        $this->assertFalse(isset($module->warning));
     }
 }

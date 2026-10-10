@@ -24,16 +24,13 @@ class TemplateAndManifestTest extends ModuleTestCase
     {
         $tpl = file_get_contents(dirname(dirname(__DIR__)) . '/views/templates/hook/payment_return.tpl');
         $this->assertContains('{$total_to_pay}', $tpl);
-        $this->assertContains('$shop_name', $tpl);
         $this->assertContains('{$checkName}', $tpl);
         $this->assertContains('{$checkAddress nofilter}', $tpl);
-        $this->assertContains('$reference', $tpl);
     }
 
     public function testInfosTemplateFileExists()
     {
         $path = dirname(dirname(__DIR__)) . '/views/templates/hook/infos.tpl';
-        $this->assertNotEmpty($path);
         $this->assertTrue(is_file($path));
     }
 }

@@ -25,8 +25,10 @@ class ValidationUnauthorizedTest extends ModuleTestCase
         fclose($pipes[0]);
         $stdout = stream_get_contents($pipes[1]);
         fclose($pipes[1]);
+        $stderr = stream_get_contents($pipes[2]);
         fclose($pipes[2]);
         $exitCode = proc_close($proc);
+        PhpDiagnosticGuard::failIfPhpDiagnostic($stdout, $stderr, 'unauthorized_validation child');
         $this->assertSame(0, $exitCode);
         $this->assertSame('This payment method is not available.', $stdout);
         $this->assertTrue(file_exists($marker));

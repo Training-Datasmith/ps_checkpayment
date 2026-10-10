@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(-1);
+
 if (!defined('_PS_VERSION_')) {
     define('_PS_VERSION_', '1.7.6.0');
 }
@@ -8,6 +10,10 @@ if (!defined('__PS_BASE_URI__')) {
 }
 
 $root = dirname(__DIR__);
+
+require_once $root . '/tests/test-suite-guard.php';
+$manifest = TestSuiteGuard::loadManifest($root);
+TestSuiteGuard::assertManifest($root, $manifest);
 
 require_once $root . '/tests/stubs/PaymentOption.php';
 require_once $root . '/tests/stubs/PrestaShopDoubles.php';

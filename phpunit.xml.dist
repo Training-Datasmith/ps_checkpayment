@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="tests/bootstrap-core.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         backupStaticAttributes="false">
-    <testsuites>
-        <testsuite name="ps_checkpayment" />
-    </testsuites>
+<phpunit bootstrap="tests/bootstrap-core.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" backupStaticAttributes="false">
+  <php><ini name="error_reporting" value="-1"/></php>
+  <testsuites>
+    <testsuite name="ps_checkpayment_a">
+      <file>./tests/unit/CheckpaymentConfigTest.php</file>
+      <file>./tests/unit/CheckpaymentConstructTest.php</file>
+      <file>./tests/unit/CheckpaymentCurrencyAndTemplateVarsTest.php</file>
+      <file>./tests/unit/CheckpaymentHooksTest.php</file>
+      <file>./tests/unit/CheckpaymentInstallTest.php</file>
+    </testsuite>
+    <testsuite name="ps_checkpayment_b">
+      <file>./tests/unit/PaymentControllerTest.php</file>
+      <file>./tests/unit/TemplateAndManifestTest.php</file>
+      <file>./tests/unit/Upgrade206Test.php</file>
+      <file>./tests/unit/ValidationControllerTest.php</file>
+      <file>./tests/unit/ValidationUnauthorizedTest.php</file>
+    </testsuite>
+  </testsuites>
 </phpunit>
